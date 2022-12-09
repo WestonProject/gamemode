@@ -1,0 +1,6 @@
+*.amx
+*.pdb
+
+# // #
+server/
+complier/
