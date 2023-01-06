@@ -5,7 +5,15 @@
       "label": "build-normal",
       "type": "shell",
       "command": "${workspaceRoot}/complier/pawncc.exe",
-      "args": ["'${workspaceRoot}/source/main.pwn'", "'-o${workspaceRoot}/server/gamemodes/main.amx'", "'-;+'", "'-(+'", "'-d3'"],
+      "args": [
+        "'-;+'", "'-(+'", "'-\\'", "'-Z-'",
+        "'-r${workspaceRoot}/source'",
+        "'-i${workspaceRoot}/include/omp-stdlib'",
+        "'-i${workspaceRoot}/include'",
+        "'-d0'", "'-O2'", "'-t4'", 
+        "'-o${workspaceRoot}/server/gamemodes/main.amx'",
+        "'${workspaceRoot}/source/main.pwn'"
+      ],
       "group": {
         "kind": "build",
         "isDefault": true

@@ -1,7 +1,8 @@
 /*
     Include's
 */
-#include <a_samp>
+#include <open.mp>
+
 #include <a_mysql>
 
 #include <Pawn.CMD>
@@ -41,6 +42,7 @@ public OnGameModeInit() {
 }
 
 public OnPlayerConnect(playerid) {
+    //(playerid);
     Player_PlayerConnect(playerid);
 
     return true;
