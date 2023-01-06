@@ -42,7 +42,6 @@ public OnGameModeInit() {
 }
 
 public OnPlayerConnect(playerid) {
-    //(playerid);
     Player_PlayerConnect(playerid);
 
     return true;

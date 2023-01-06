@@ -2,28 +2,35 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build-normal",
+      "label": "build-gamemode",
       "type": "shell",
       "command": "${workspaceRoot}/complier/pawncc.exe",
       "args": [
         "'-;+'", "'-(+'", "'-\\'", "'-Z-'",
-        "'-r${workspaceRoot}/source'",
         "'-i${workspaceRoot}/include/omp-stdlib'",
         "'-i${workspaceRoot}/include'",
         "'-d0'", "'-O2'", "'-t4'", 
+        "'-r${workspaceRoot}/server/gamemodes/main'",
         "'-o${workspaceRoot}/server/gamemodes/main.amx'",
         "'${workspaceRoot}/source/main.pwn'"
-      ],
+      ]
+    },
+    {
+      "label": "start-server",
+      "type": "shell",
+      "options": {
+        "cwd": "server"
+      },
+      "command": "${workspaceRoot}/server/omp-server.exe"
+    },
+    {
+      "label": "build-all",
       "group": {
         "kind": "build",
         "isDefault": true
       },
-      "isBackground": false,
-      "presentation": {
-        "reveal": "silent",
-        "panel": "dedicated"
-      },
-      "problemMatcher": "$pawncc"
+      "dependsOrder": "sequence",
+      "dependsOn": ["build-gamemode", "start-server"]
     }
   ]
 }
